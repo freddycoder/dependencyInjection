@@ -66,5 +66,16 @@ namespace BasicTest
 
             Assert.Equal("obj Sam as been added to the database\r\n", sw.ToString());
         }
+
+        [Fact]
+        public void YoutubeAutoMapperExemple()
+        {
+            var blogic = _container.GetRequiredService<BLogic>();
+
+            blogic.ProcessData();
+
+            var response = "Logging Starting the processing of data.\r\nProcessing the data\r\nLoading Data\r\nSaving ProcessedInfo\r\nLogging Finished processing of the data.\r\n";
+            Assert.Equal(response, sw.ToString());
+        }
     }
 }

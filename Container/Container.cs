@@ -83,12 +83,12 @@ namespace LearningDependencyInjection.DependencyResoler
 
             var parameters = constructor.GetParameters();
 
-            var parametersConcreteTypes = new object[parameters.Length];
+            var parametersObjectInstance = new object[parameters.Length];
 
             for (int i = 0; i < parameters.Length; i++)
-                parametersConcreteTypes[i] = GetRequiredInstance(parameters[i].ParameterType);
+                parametersObjectInstance[i] = GetRequiredInstance(parameters[i].ParameterType);
 
-            return Activator.CreateInstance(findType, parametersConcreteTypes);
+            return Activator.CreateInstance(findType, parametersObjectInstance);
         }
     }
 }

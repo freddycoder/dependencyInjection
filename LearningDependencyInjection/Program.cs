@@ -1,5 +1,6 @@
 ﻿using LearningDependencyInjection.BusinessLogic;
 using LearningDependencyInjection.DependencyResoler;
+using System;
 using System.Reflection;
 
 namespace LearningDependencyInjection
@@ -12,7 +13,11 @@ namespace LearningDependencyInjection
 
             container.AddContext<IContext>();
 
+            container.GetRequiredService<BLogic>().ProcessData();
+
             container.GetRequiredService<CustomerLogic>().CreateNewCustomer("Sam");
+
+            Console.ReadLine();
         }
     }
 }
